@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prajapati Samaj - Yuva Sangathan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #01f7eb, #8e24aa);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      background-color: #fdc762;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      background-color: #ab47bc;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      background: linear-gradient(to right, #ba68c8, #ce93d8);
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #ffffff, #f0f0f0);
+      border: 1px solid #ddd;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      margin-top: 20px;
+      background: linear-gradient(to right, #ff6f61, #d84315);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(to right, #ff7043, #f4511e);
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #4f6a88;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+      background-color: #8e24aa;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #6a1b9a;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Prajapati Samaj - Yuva Sangathan</h1>
+    <p>Unity • Growth • Empowerment</p>
+  </header>
+
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#events">Events</a>
+    <a href="#education">Education</a>
+    <a href="#members">Members</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>We are a vibrant community of youth aiming for growth, unity, and social change within the Prajapati Samaj.</p>
+    <div class="card-container" style="margin-top: 40px;">
+      <div class="card">
+        <h3>Our Mission</h3>
+        <p>To uplift and unite the youth of Prajapati Samaj through education, awareness, and leadership opportunities.</p>
+      </div>
+      <div class="card">
+        <h3>Our Vision</h3>
+        <p>Creating a self-reliant, culturally strong, and progressive community through collaboration and dedication.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="events">
+    <h2>Upcoming Events</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Youth Meet 2025</h3>
+        <p>Meet, inspire, and grow together in our annual youth gathering.</p>
+      </div>
+      <div class="card">
+        <h3>Blood Donation Camp</h3>
+        <p>Join our drive to save lives across the samaj network.</p>
+      </div>
+      <div class="card">
+        <h3>Skill Workshop</h3>
+        <p>Learn from professionals in digital, technical, and soft skills.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <h2>Education</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Career Guidance</h3>
+        <p>Explore different career paths, aptitude tests, expert panels, and mentorship opportunities for students.</p>
+        <a href="career-guidance.html" class="btn">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Scholarships</h3>
+        <p>Helping deserving students of Prajapati Samaj with financial support and academic aid.</p>
+        <a href="scholarships.html" class="btn">Apply Now</a>
+      </div>
+      <div class="card">
+        <h3>Workshops</h3>
+        <p>Regular workshops on resume building, interview skills, and professional development.</p>
+        <a href="workshops.html" class="btn">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="members">
+    <h2>Member Zone</h2>
+    <p>Connect with fellow members, share ideas, and join our initiatives.</p>
+    <a href="register.html" class="btn">Register Now</a>
+
+    <div class="card-container" style="margin-top: 40px;">
+      <div class="card">
+        <h3>Networking</h3>
+        <p>Connect with over 10,000 youth across India through our Samaj network.</p>
+      </div>
+      <div class="card">
+        <h3>Mentorship</h3>
+        <p>Get career and personal guidance from experienced community leaders.</p>
+      </div>
+      <div class="card">
+        <h3>Opportunities</h3>
+        <p>Access to job fairs, scholarships, volunteering, and training sessions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <form action="contact.php" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Your Phone Number" pattern="[0-9]{10}" required />
+      <input type="text" name="city" placeholder="Your City" required />
+      <select name="subject" required>
+        <option value="" disabled selected>Select Subject</option>
+        <option value="general">General Inquiry</option>
+        <option value="event">Event Participation</option>
+        <option value="partnership">Partnership</option>
+        <option value="feedback">Feedback</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  
+
+  <footer>
+    <p>&copy; 2025 Prajapati Samaj Yuva Sangathan. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

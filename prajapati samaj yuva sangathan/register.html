@@ -1,0 +1,206 @@
+<!-- member zone id genarator code html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ID Card Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e1bee7, #f8bbd0);
+      padding: 30px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      border: 3px solid #ba68c8;
+    }
+
+    h2 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 2px solid #ce93d8;
+      font-size: 1rem;
+    }
+
+    input[type="file"] {
+      padding: 5px;
+      background: #f3e5f5;
+    }
+
+    button {
+      background: #8e24aa;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #6a1b9a;
+    }
+
+    #id-card {
+      margin-top: 30px;
+      background: linear-gradient(to bottom right, #fff3e0, #fce4ec);
+      padding: 25px;
+      border-radius: 16px;
+      display: none;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border: 2px dashed #8e24aa;
+      text-align: center;
+      position: relative;
+    }
+
+    #userPhoto {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border: 4px solid #ab47bc;
+    }
+
+    #id-card h2 {
+      font-size: 1.4rem;
+      color: #6a1b9a;
+      margin-bottom: 4px;
+    }
+
+    #id-card h4 {
+      color: #ab47bc;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    #id-card h3 {
+      margin: 10px 0 5px;
+      color: #4a148c;
+    }
+
+    .card-detail {
+      font-size: 1rem;
+      margin: 4px 0;
+      color: #444;
+    }
+
+    #downloadBtn {
+      margin-top: 20px;
+      background-color: #43a047;
+      font-size: 1rem;
+      display: none; /* Initially hide the download button */
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: #fff;
+      margin-top: 12px;
+      background-color: #043b3df8;
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    .top-section {
+      background-color: #8e24aa;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <form action="generate-id.php" method="POST" enctype="multipart/form-data">
+      <h2>Prajapati Samaj Yuva Sangathan</h2>
+      <input type="text" name="fullName" placeholder="Full Name" required>
+      <input type="text" name="address" placeholder="Address" required>
+      <input type="file" name="photo" accept="image/*" required>
+      <button type="submit" name="generate">Generate ID Card</button>
+    </form>
+    
+    <div id="id-card">
+      <div class="top-section">
+        Prajapati Samaj Yuva Sangathan
+      </div>
+
+      <!-- User Photo -->
+      <img id="userPhoto" src="" alt="User Photo">
+
+      <!-- Details -->
+      <h3 id="cardName"></h3>
+      <p class="card-detail" id="cardAddress"></p>
+      <p class="card-detail">ID No: <span id="cardID"></span></p>
+
+      <!-- Footer -->
+      <p class="footer-text">Issued by Prajapati Samaj Yuva Sangathan</p>
+    </div>
+
+    <button id="downloadBtn" onclick="downloadIDCard()">Download ID Card</button>
+  </div>
+
+  <script>
+    // Initialize the ID counter
+    let idCounter = 1;
+
+    function generateIDCard() {
+      const name = document.getElementById('fullName').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const photo = document.getElementById('photoInput').files[0];
+
+      if (!name || !address || !photo) {
+        alert("Please fill all fields and upload a photo.");
+        return;
+      }
+
+      const id = generateID();
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('userPhoto').src = e.target.result;
+        document.getElementById('cardName').innerText = name;
+        document.getElementById('cardAddress').innerText = "Address: " + address;
+        document.getElementById('cardID').innerText = id;
+        document.getElementById('id-card').style.display = 'block';
+        document.getElementById('downloadBtn').style.display = 'inline-block'; // Show download button
+      };
+      reader.readAsDataURL(photo);
+    }
+
+    function generateID() {
+      const id = idCounter;
+      idCounter++;  // Increment the counter for the next ID
+      return `PRJ${id.toString().padStart(4, '0')}`; // Generate ID in the format PRJ0001, PRJ0002, etc.
+    }
+
+    function downloadIDCard() {
+      html2canvas(document.querySelector("#id-card")).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "Prajapati_ID_Card.png";
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+  </script>
+
+</body>
+</html>
